@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>insta485</title>
+    </head>
+    <body>
+        <a href="/">Camera</a>
+        <a href="/explore/">explore</a>
+        <a href="/users/awdeorio/">awdeorio</a>
+    
+    
+    
+        
+           <p> <a href="/posts/2/">just now</a> </p> 
+           <p><img src="/uploads/ad7790405c539894d25ab8dcf0b79eed3341e109.jpg" alt="PIC" /></p>
+           <p><a href= "/users/jflinn/">
+           <img src="/uploads/505083b8b56c97429a728b68f31b0b2a089e5113.jpg" alt="PIC" /></a></p>
+           <p><a href= "/users/jflinn/">jflinn</a></p>
+
+            <p>
+                
+                2 likes
+                
+            </p>
+            
+            
+            
+            <p>  <a href="/users/awdeorio/">awdeorio</a></p>
+            <p> Sick #crossword</p>
+            <!--delete comment button--> 
+            
+            <form action="/comments/?target=/posts/2" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="operation" value="delete"/>
+                <input type="hidden" name="commentid" value=/>
+                <input type="submit" name="uncomment" value="delete"/>
+              </form>
+            
+            
+            
+            
+                    <form action="/likes/?target=/" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="operation" value="unlike"/>
+                    <input type="hidden" name="postid" value= 2/><!--TODO:check not string--> 
+                    <input type="submit" name="unlike" value="unlike"/>
+                    </form>
+            
+
+
+            <!--delete post button--> 
+            
+
+            <!--comment button--> 
+            <form action="/comments/?target/" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="operation" value="create"/>
+                <input type="hidden" name="postid" value=2/>
+                <input type="text" name="text" required/>
+                <input type="submit" name="comment" value="comment"/>
+            </form>
+
+    </body>
+
+</html>
+
+

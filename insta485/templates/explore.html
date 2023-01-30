@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>insta485</title></head>
+<body>
+    <a href="/">Camera</a>
+    <a href="/explore/">explore</a>
+    <a href="/users/{{logname}}/">{{logname}}</a>
+
+
+   <p> Discover People </p>
+    {% for people in not_following %}
+        {%if people.username != logname%}
+        <p> <a href="/users/{{people.username}}/">{{people.username}}</a> </p>
+        <p><img src="{{url_for('show_img', filename = people.filename)}}" alt="PIC" /></p>
+        <form action="/following/?target=/explore/" method="post" enctype="multipart/form-data">
+            <input type="submit" name="follow" value="follow"/>
+            <input type="hidden" name="username" value="{{people.username}}"/>
+            <input type="hidden" name="operation" value="follow"/>
+        </form>
+        {%endif%}
+    {% endfor %}
+    </body>
+
+</html>

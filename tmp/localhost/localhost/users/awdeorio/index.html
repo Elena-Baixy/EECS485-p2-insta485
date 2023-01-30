@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>insta485</title>
+    </head>
+    <body>
+        <a href="/">Camera</a>
+        <a href="/explore/">explore</a>
+        <a href="/users/awdeorio/">awdeorio</a>
+
+        
+        <!-- edit page -->
+        <p><a href= "/accounts/edit/">Edit profile</a></p>
+        <!-- logout button -->
+        <form action="/accounts/logout/" method="post" enctype="multipart/form-data">
+            <input type="submit" name="logout" value="Logout"/>
+        </form>
+        <!-- File upload form -->
+        <form action="/posts/?target=/users/" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required/>
+        <input type="submit" name="create_post" value="upload new post"/>
+        <input type="hidden" name="operation" value="create"/>
+        </form>
+        
+
+
+        awdeorio
+        
+            
+        
+        
+        
+            <p> 2 posts </p>
+        
+        
+        
+            <p> <a href="/users/awdeorio/followers/">2 followers </a> </p>
+        
+        
+        <p> <a href="/users/awdeorio/following/">2 following </a> </p>
+        
+        <p> Andrew DeOrio </p>
+        
+        
+        
+        <p> <a href="/posts/1/"><img src="/uploads/122a7d27ca1d7420a1072f695d9290fad4501a41.jpg" alt = "PIC"></a> </p>
+           
+        
+        <p> <a href="/posts/3/"><img src="/uploads/9887e06812ef434d291e4936417d125cd594b38a.jpg" alt = "PIC"></a> </p>
+           
+        
+    </body>
+
+</html>

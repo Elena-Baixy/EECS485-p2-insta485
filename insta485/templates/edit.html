@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>insta485</title>
+    </head>
+    <body>
+        <a href="/">Camera</a>
+        <a href="/explore/">explore</a>
+        <a href="/users/{{logname}}/">{{logname}}</a>
+        {% for user in users %}
+        <p><img src="{{url_for('show_img', filename = user.filename)}}" alt="PIC" /></p>
+        <a href="/users/{{logname}}/">{{logname}}</a>
+
+        <!-- DO NOT CHANGE THIS (aside from styling) -->
+        <!-- DO NOT CHANGE THIS (aside from where we say 'FIXME') -->
+        <form action="/accounts/?target=/edit/" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*"/>
+        <input type="text" name="fullname" value=user.fullname required/>
+        <input type="text" name="email" value=user.email required/>
+        <input type="submit" name="update" value="submit"/>
+        <input type="hidden" name="operation" value="edit_account"/>
+        </form>
+        {% endfor %}
+  <br>
+  <p>
+      <a href="{{url_for('update_password')}}">
+        Change Password ?
+      </a>
+      <br>
+      <a href="{{url_for('delete')}}">
+        Delete?
+      </a>
+
+  </p>
+
+    </body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>insta485</title>
+    </head>
+    <body>
+        <a href="/">Camera</a>
+        <a href="/explore/">explore</a>
+        <a href="/users/awdeorio/">awdeorio</a>
+    
+    
+    
+        
+           <p> <a href="/posts/4/">just now</a> </p> 
+           <p><img src="/uploads/2ec7cf8ae158b3b1f40065abfb33e81143707842.jpg" alt="PIC" /></p>
+           <p><a href= "/users/jag/">
+           <img src="/uploads/73ab33bd357c3fd42292487b825880958c595655.jpg" alt="PIC" /></a></p>
+           <p><a href= "/users/jag/">jag</a></p>
+
+            <p>
+                
+                0 likes
+                
+            </p>
+            
+            
+            
+            <p>  <a href="/users/jag/">jag</a></p>
+            <p> Saw this on the diag yesterday!</p>
+            <!--delete comment button--> 
+            
+            
+            
+            
+                    <!-- DO NOT CHANGE THIS (aside from where we say 'FIXME') -->
+                    <form action="/likes/?target=/" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="operation" value="like"/>
+                    <input type="hidden" name="postid" value=4/> <!--TODO:check not string--> 
+                    <input type="submit" name="like" value="like"/>
+                    </form>
+            
+
+
+            <!--delete post button--> 
+            
+
+            <!--comment button--> 
+            <form action="/comments/?target/" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="operation" value="create"/>
+                <input type="hidden" name="postid" value=4/>
+                <input type="text" name="text" required/>
+                <input type="submit" name="comment" value="comment"/>
+            </form>
+
+    </body>
+
+</html>
+
+

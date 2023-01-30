@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>insta485</title>
+  </head>
+  <body>
+    <a href="/">Camera</a>
+    <a href="/explore/">explore</a>
+    <a href="/users/{{logname}}/">{{logname}}</a> 
+
+        {% for post in posts %}
+         <!-- <p>{{post.created}}</p> TODO: {{post.timestamp}} -->
+            {% for log_is_following in log_followings_and_self %}
+                {% if post.owner == log_is_following.username2 %}
+                <p><a href="/posts/{{post.postid}}/">{{post.created}}</a></p>
+                    {% for user in users %}
+                        {% if user.username == post.owner %}
+                        <p><a href= "/users/{{user.username}}/">{{post.owner}}</a></p>
+                        <p>
+                            <a href= "/users/{{user.username}}/">
+                                <img src="{{url_for('show_img', filename = user.filename)}}" alt="PIC" />
+                            </a>
+                            
+                        </p>
+                        {% endif %}
+                    {% endfor %}
+
+           
+         <p><img src="{{url_for('show_img', filename = post.filename)}}" alt="PIC" /></p>
+
+                    {% for like in likes %}
+                        
+                        {% if like.postid == post.postid %}
+                            {% if like.count == 1%}
+                            {{ like.count }} like
+                            {% else %}
+                            {{ like.count }} likes
+                            {% endif %}
+                        {% endif %}
+            
+                    {% endfor %}
+            <!--TODO: if like.owner == logname then (unlike button)-->
+                   
+            {% for like in like_posts %}
+            {% if post.postid == like.postid %}
+            <!--unlike button-->
+            <form action="/likes/?target=/" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="operation" value="unlike"/>
+                <input type="hidden" name="postid" value=post.postid/><!--TODO:check not string--> 
+                <input type="submit" name="unlike" value="unlike"/>
+            </form>
+
+            {% endif %}
+            {% endfor %}
+
+            {% for unlike in unlikes %}
+            {% if post.postid == unlike %}
+            <!--like button-->
+            <form action="/likes/?target=/" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="operation" value="like"/>
+                <input type="hidden" name="postid" value=post.postid/> <!--TODO:check not string--> 
+                <input type="submit" name="like" value="like"/>
+                </form>
+            
+            {% endif %}
+            {% endfor %}
+                  
+
+                    <br>
+
+                    {% for comment in comments %}
+
+                        {% if comment.postid == post.postid %}
+                        <a href = "/users/{{comment.owner}}/">{{comment.owner}} </a>
+                        {{comment.text}}
+                        <br>
+                        {% endif %}
+                    {% endfor %}
+
+                    <!-- DO NOT CHANGE THIS (aside from where we say 'FIXME') -->
+                    <form action="/comments/?target/" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="operation" value="create"/>
+                    <input type="hidden" name="postid" value="post.postid"/>
+                    <input type="text" name="text" required/>
+                    <input type="submit" name="comment" value="comment"/>
+                    </form>
+                    
+
+                    {% endif %}
+            {% endfor %}
+        {% endfor %}
+  </body>
+</html>
+
+
+
+
+
+<!--
+    
+-->
