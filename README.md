@@ -1,4 +1,4 @@
-EECS 485 Project 1 Solution
+EECS 485 Project 2 insta485
 ===========================
 Templated Static Site Generator
 
